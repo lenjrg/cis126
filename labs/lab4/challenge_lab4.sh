@@ -1,7 +1,6 @@
 #!/bin/bash
 echo "―――――――――――――――――――――"
 figlet "System"
-echo "$LINE"
 echo -e "DATE UTC:\t $(date --rfc-3339='seconds')" 
 echo -e "HOSTNAME:\t $(whoami)"
 echo -e "UPTIME:\t 	 $(uptime --pretty)"
