@@ -18,7 +18,8 @@
 
 
 ## Question 3 - Challenge 2
-![img](cq22.png)
-![img](cq21.png)
-![img](cq23.png)
-![img](cq24.png)
+![img](q3-1.png)
+![img](q3-2.png)
+![img](q3-3.png)
+![img](q3-4.png)
+![img](q3.png)
