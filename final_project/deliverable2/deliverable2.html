@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>deliverable2.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #2e2e2e;
+  background-color: #f7f9fc;
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 2.5em;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.4em;
+}
+
+h2 {
+  font-size: 1.8em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.3em;
+}
+
+h3 {
+  font-size: 1.3em;
+  margin-top: 1.5em;
+}
+
+/* Paragraphs */
+p {
+  margin: 1em 0;
+}
+
+/* Links */
+a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Lists */
+ul {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Emphasis and strong */
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+/* Code blocks and inline code */
+pre {
+  background-color: #272822;
+  color: #f8f8f2;
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: Consolas, Monaco, 'Courier New', monospace;
+  background: #eee;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 90%;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 2px solid #ccc;
+  margin: 2em 0;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid #007acc;
+  padding-left: 1em;
+  margin-left: 0;
+  background: #f1f8ff;
+  color: #333;
+  font-style: italic;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin: 1em 0;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+}
+
+th, td {
+  padding: 0.75em 1em;
+  border: 1px solid #ddd;
+}
+
+thead {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+/* Footer note */
+footer, .footer-note {
+  text-align: center;
+  margin-top: 3em;
+  font-size: 0.9em;
+  color: #777;
+}
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  font-size: 0.95em;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #007acc;
+  color: #ffffff;
+  text-align: left;
+}
+
+thead th {
+  padding: 12px 16px;
+  font-weight: 600;
+  border-bottom: 2px solid #005f99;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1faff;
+}
+
+td {
+  padding: 12px 16px;
+}
+
+td a {
+  color: #007acc;
+  font-weight: 500;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="deliverable-2">Deliverable 2</h1>
+<hr>
+<h2 id="questions">Questions</h2>
+<ol>
+<li>What are the server hardware specifications (virtual machine settings)?</li>
+</ol>
+<p><img src="vmsettings.png" alt="img"></p>
+<ol>
+<li>
+<p>What is the Debian Login Screen?
+<img src="vmlogin.png" alt="img"></p>
+</li>
+<li>
+<p>What is the IP address of your Debian Server Virtual Machine?
+Here is a screenshot:
+<img src="ip.png" alt="img"></p>
+</li>
+<li>
+<p>How do you work with the Firewall in Debian?
+A network firewall is a security system, hardware or software, that acts as a digital barrier, monitoring and controlling incoming and outgoing network traffic to protect a private network from unauthorized access and cyber threats like hackers, viruses, and malware by enforcing predefined security rules.</p>
+</li>
+</ol>
+<ul>
+<li>How do you check if the Firewall is running?
+Open a terminal and run the following command: <code>sudo ufw status</code></li>
+<li>How do you disable the Firewall?
+Open a terminal and run the following command: <code>sudo ufw disable</code></li>
+<li>How do you add Apache to the Firewall?
+Open a terminal and run the following command to identify which profiles are available: <code>sudo ufw app list | grep Apache</code>
+Then, run <code>sudo ufw allow &quot;Profile Name&quot;</code>.</li>
+</ul>
+<ol>
+<li>What different commands do we use to work with Apache?</li>
+</ol>
+<ul>
+<li>
+<p>What is the command you use to check if Apache is running?</p>
+<ul>
+<li>To check if Apache is running, open a terminal and run the following command: <code>systemctl status apache.service</code> as shown in the following screenshot.
+<img src="status.png" alt="status"></li>
+</ul>
+</li>
+<li>
+<p>What is the command you use to stop Apache?</p>
+<ul>
+<li>To stop Apache from running, open a terminal and run the following command: <code>systemctl status apache.service</code> as shown in the following screenshot.
+<img src="stop.png" alt="stop"></li>
+</ul>
+</li>
+<li>
+<p>What is the command you use to restart Apache?</p>
+<ul>
+<li>To restart a running service, you must open a terminal and run the following command: <code>systemctl restart apache2.service</code> as shown in the screenshot below.
+<img src="restart.png" alt="restart"></li>
+</ul>
+</li>
+<li>
+<p>What is the command used to test Apache configuration?</p>
+</li>
+<li>
+<p>Use the following command <code>sudo apache2ctl configtest</code> as shown in the following screenshot.
+<img src="configtest.png" alt="configtest"></p>
+</li>
+<li>
+<p>What is the command used to check the installed version of Apache?</p>
+<ul>
+<li>Use the following command to check the installed version of an application: <code>apache2ctl -v</code>
+<img src="version.png" alt="version"></li>
+</ul>
+</li>
+<li>
+<p>What are some common configuration files for Apache?</p>
+<ul>
+<li>I was able to identify the following files: {access, error, other_vhosts_access}.log files after running <code>ls /var/log/apache2</code> in the terminal.
+<img src="files.png" alt="files"></li>
+</ul>
+</li>
+<li>
+<p>Where does Apache store logs?</p>
+<ul>
+<li>Apache stores log in the following directory <strong>/var/log/apache2</strong></li>
+</ul>
+</li>
+<li>
+<p>What are some basic commands we can use to review logs?</p>
+<ul>
+<li>The <code>cat</code> command can be used to review log files. For example: <code>cat /var/log/apache2/access.log</code>
+<img src="logs.png" alt="logs"></li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>

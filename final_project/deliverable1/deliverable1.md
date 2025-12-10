@@ -91,6 +91,8 @@ Git is a free and open-source distributed version control system (DVCS) designed
 GitHub is a cloud-based platform for hosting and collaborating on code using Git, a version control system. It provides a user-friendly web interface for developers to store code in repositories, track changes, manage projects, and work together on software from anywhere.
 
 ##### Terms I did not understand
--
--
--
+- Port forwarding:
+Port forwarding is a **network trick** that tells your router to send incoming internet traffic for a specific "port" (like a digital doorway) to a particular device (like a game console or server) inside your private home network, bypassing the router's default security to allow remote access for things like gaming, security cameras, or hosting servers. It acts like a receptionist directing a specific caller (internet traffic) to the right person (device) in the office (your network) by mapping external requests to internal IP addresses and ports. 
+
+-Bridge Network Adapter:
+A bridged network adapter is a virtual machine (VM) setting that connects the VM directly to the physical network, making it appear as a separate, independent device on the same network as the host computer, getting its own IP address from the router, similar to plugging another physical PC into the network. It uses the host's network adapter but spoofs a unique MAC address, allowing the VM full access to the network and the ability to be seen by other devices, unlike NAT which hides the VM behind the host. 

@@ -1,144 +1,564 @@
 <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>Deliverable 1</title>
-            <style>
-/* From extension vscode.github */
+<html>
+<head>
+<title>deliverable1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-.vscode-dark img[src$=\#gh-light-mode-only],
-.vscode-light img[src$=\#gh-dark-mode-only],
-.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
-.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
-	display: none;
+/* Global styles */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #2e2e2e;
+  background-color: #f7f9fc;
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
 }
 
-</style>
-            
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        <style>
-.task-list-item {
-    list-style-type: none;
+/* Headings */
+h1, h2, h3 {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
 }
 
-.task-list-item-checkbox {
-    margin-left: -20px;
-    vertical-align: middle;
-    pointer-events: none;
-}
-</style>
-<style>
-:root {
-  --color-note: #0969da;
-  --color-tip: #1a7f37;
-  --color-warning: #9a6700;
-  --color-severe: #bc4c00;
-  --color-caution: #d1242f;
-  --color-important: #8250df;
+h1 {
+  font-size: 2.5em;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.4em;
 }
 
-</style>
-<style>
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-note: #2f81f7;
-    --color-tip: #3fb950;
-    --color-warning: #d29922;
-    --color-severe: #db6d28;
-    --color-caution: #f85149;
-    --color-important: #a371f7;
+h2 {
+  font-size: 1.8em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.3em;
+}
+
+h3 {
+  font-size: 1.3em;
+  margin-top: 1.5em;
+}
+
+/* Paragraphs */
+p {
+  margin: 1em 0;
+}
+
+/* Links */
+a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Lists */
+ul {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Emphasis and strong */
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+/* Code blocks and inline code */
+pre {
+  background-color: #272822;
+  color: #f8f8f2;
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: Consolas, Monaco, 'Courier New', monospace;
+  background: #eee;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 90%;
+}
+
+/* Horizontal rule */
+hr {
+  border: none;
+  border-top: 2px solid #ccc;
+  margin: 2em 0;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid #007acc;
+  padding-left: 1em;
+  margin-left: 0;
+  background: #f1f8ff;
+  color: #333;
+  font-style: italic;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin: 1em 0;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+}
+
+th, td {
+  padding: 0.75em 1em;
+  border: 1px solid #ddd;
+}
+
+thead {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+/* Footer note */
+footer, .footer-note {
+  text-align: center;
+  margin-top: 3em;
+  font-size: 0.9em;
+  color: #777;
+}
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  font-size: 0.95em;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #007acc;
+  color: #ffffff;
+  text-align: left;
+}
+
+thead th {
+  padding: 12px 16px;
+  font-weight: 600;
+  border-bottom: 2px solid #005f99;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1faff;
+}
+
+td {
+  padding: 12px 16px;
+}
+
+td a {
+  color: #007acc;
+  font-weight: 500;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
   }
 }
 
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
 </style>
+
 <style>
-.markdown-alert {
-  padding: 0.5rem 1rem;
-  margin-bottom: 16px;
-  color: inherit;
-  border-left: .25em solid #888;
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
 }
 
-.markdown-alert>:first-child {
-  margin-top: 0
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
 }
 
-.markdown-alert>:last-child {
-  margin-bottom: 0
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
 }
 
-.markdown-alert .markdown-alert-title {
-  display: flex;
-  font-weight: 500;
-  align-items: center;
-  line-height: 1
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
 }
 
-.markdown-alert .markdown-alert-title .octicon {
-  margin-right: 0.5rem;
-  display: inline-block;
-  overflow: visible !important;
-  vertical-align: text-bottom;
-  fill: currentColor;
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
 }
 
-.markdown-alert.markdown-alert-note {
-  border-left-color: var(--color-note);
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
 }
 
-.markdown-alert.markdown-alert-note .markdown-alert-title {
-  color: var(--color-note);
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
 }
 
-.markdown-alert.markdown-alert-important {
-  border-left-color: var(--color-important);
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
 }
 
-.markdown-alert.markdown-alert-important .markdown-alert-title {
-  color: var(--color-important);
+.hljs-emphasis {
+	font-style: italic;
 }
 
-.markdown-alert.markdown-alert-warning {
-  border-left-color: var(--color-warning);
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
 }
 
-.markdown-alert.markdown-alert-warning .markdown-alert-title {
-  color: var(--color-warning);
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
 }
 
-.markdown-alert.markdown-alert-tip {
-  border-left-color: var(--color-tip);
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
 }
 
-.markdown-alert.markdown-alert-tip .markdown-alert-title {
-  color: var(--color-tip);
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
 }
 
-.markdown-alert.markdown-alert-caution {
-  border-left-color: var(--color-caution);
+.emoji {
+	height: 1.4em;
 }
 
-.markdown-alert.markdown-alert-caution .markdown-alert-title {
-  color: var(--color-caution);
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
 }
 
 </style>
-        
-        </head>
-        <body class="vscode-body vscode-light">
-            <h1 id="deliverable-1">Deliverable 1</h1>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="deliverable-1">Deliverable 1</h1>
 <hr>
 <h2 id="questions">Questions</h2>
 <ul>
@@ -150,63 +570,106 @@
 <li>What are some different web server applications? Include definitions, project’s website/where to download it, which operating system is available for and its latest version.</li>
 </ul>
 <h5 id="application--1">Application # 1</h5>
-<p><strong>Apache</strong>
-<img src="file:////home/lenjrg/cis106/final_project/deliverable1/apache1.png" alt="img"></p>
+<p><strong>Apache</strong></p>
+<p><img src="../deliverable1/apache1.png" alt="img"></p>
 <p>The Apache HTTP Server Project is an effort to develop and maintain an open-source HTTP server for modern operating systems including UNIX and Windows. The goal of this project is to provide a secure, efficient and extensible server that provides HTTP services in sync with the current HTTP standards.</p>
 <p>The Apache HTTP Server (&quot;httpd&quot;) was launched in 1995 and it has been the most popular web server on the Internet since April 1996.</p>
 <ul>
+<li>Website: Application site <strong><a href="https://httpd.apache.org/">here</a></strong></li>
+<li>Available for: <strong>Linux, Windows, macOS and Unix-like Systems.</strong></li>
+<li>Latest version: <strong>2.4.65</strong></li>
+</ul>
+<hr>
+<h5 id="application--2">Application # 2</h5>
+<p><strong>Nginx</strong></p>
+<p><img src="../deliverable1/nginx.jpg" alt="img"></p>
+<p>NGINX is a high-performance web server software used for web serving, reverse proxying, and load balancing. It efficiently handles a high volume of simultaneous connections due to its asynchronous, event-driven architecture, making it suitable for modern web applications and APIs.</p>
+<ul>
+<li>Website: Application site <strong><a href="https://nginx.org/en/">here</a></strong></li>
+<li>Available for: <strong>Linux, Windows, macOS, FreeBSD, Solaris and more.</strong></li>
+<li>Latest Version: <strong>1.29.3</strong></li>
+</ul>
+<hr>
+<h5 id="application--3">Application # 3</h5>
+<p><strong>Microsoft Internet Information Services (IIS)</strong></p>
+<p><img src="../deliverable1/Microsoft.jpg" alt="img"></p>
+<p>LiteSpeed Web Server (LSWS) is a high-performance, proprietary web server that acts as a drop-in replacement for Apache, offering improved speed, scalability, and security. Its event-driven architecture is efficient, handling many concurrent users with minimal resource usage, while built-in features like anti-DDoS tools and a caching engine further enhance performance. It is known for being easy to migrate to from Apache and is compatible with common control panels like cPanel.</p>
+<ul>
+<li>Website: Application site <strong><a href="https://www.litespeedtech.com/">here</a></strong></li>
+<li>Available for: <strong>Linux, macOS, FreeBSD and Solaris.</strong></li>
+<li>Latest Version: <strong>6.3</strong></li>
+</ul>
+<hr>
+<ul>
 <li>
-<p>Website: Application site <a href="https://httpd.apache.org/">here</a></p>
+<p>What is virtualization?
+Virtualization is the process of creating a virtual, software-based version of physical IT resources, such as servers, storage, networks, or operating systems. It uses software to abstract these resources, allowing multiple virtual environments to run on a single physical machine, which increases efficiency and allows for better resource utilization.</p>
 </li>
 <li>
-<p>What is virtualization?</p>
+<p>What is virtualbox?
+VirtualBox is a free, open-source virtualization software that allows you to create and run virtual machines (VMs) on your computer, effectively letting you run multiple operating systems on a single machine. It's used for tasks like testing software, experimenting with different operating systems, or creating isolated, secure environments for development and other work.</p>
 </li>
 <li>
-<p>What is virtualbox?</p>
+<p>What is a virtual machine?
+A virtual machine (VM) is a software-based simulation of a computer that runs on a physical host machine. It functions as a self-contained computer with its own operating system (guest OS) and applications, allowing multiple VMs to run on a single physical server by using a hypervisor to manage resource allocation.</p>
 </li>
 <li>
-<p>What is a virtual machine?</p>
+<p>In the context of virtualization, what does host machine and guest machine mean?
+A <strong>host machine</strong> is the physical computer or server that provides the resources (like CPU, memory, and storage) to run virtual machines, while a <strong>guest machine</strong> is the virtual machine itself that operates on top of the host.</p>
 </li>
 <li>
-<p>In the context of virtualization, what does host machine and guest
-machine mean?</p>
+<p>What is Debian?
+Debian is a free, open-source operating system based on the Linux or FreeBSD kernel, known for its stability, reliability, and large software repository. It is community-driven and supports a wide range of uses, from personal desktops to enterprise servers. Debian is also a parent distribution for many other Linux versions, like Ubuntu.</p>
 </li>
 <li>
-<p>What is Debian?</p>
+<p>What is a firewall?
+A firewall is a network security system that monitors and controls incoming and outgoing internet traffic based on predetermined security rules. It acts as a barrier between a private network and external networks, like the internet, by blocking unauthorized access while permitting legitimate communication. Firewalls can be implemented as either software on individual devices or as dedicated hardware devices for an entire network.</p>
 </li>
 <li>
-<p>What is a firewall?</p>
+<p>What is SSH?
+SSH, or Secure Shell, is a network protocol that creates a secure, encrypted connection between two computers over an unsecured network, like the internet. It allows users to remotely access, manage, and transfer files to a server or other machine in a secure way, and is a secure replacement for older, unencrypted protocols like Telnet.</p>
 </li>
 <li>
-<p>What is SSH?</p>
+<p>What is an IP Address?
+An IP (Internet Protocol) address is a unique numerical label assigned to every device connected to a computer network that uses the Internet Protocol for communication. It functions like a home address, allowing data to be sent and received between devices on the internet or on a local network. IP addresses enable devices to identify and communicate with each other, ensuring data is sent to the correct destination.
+<img src="https://www.itarian.com/blog/wp-content/uploads/2025/07/how-to-track-from-ip-address.png" alt="img"></p>
 </li>
 <li>
-<p>What is an IP Address?</p>
+<p>What is a network mask?
+A network mask is a 32-bit number, often written in dotted-decimal format (for example <code>255.255.255.0</code>, that divides an IP address into two parts: the network address and the host address. This division is crucial for network operation, as it helps devices determine if another IP address is on the same network or a different one, enabling proper routing and communication.</p>
 </li>
 <li>
-<p>What is a network mask?</p>
+<p>What is a port? (in the context of networking/computers)
+In networking, a port is a virtual communication endpoint that identifies a specific process or service on a computer. It is a number from 0 to 65,535 that, when paired with an IP address, directs internet traffic to the correct application, like a web browser or email client. Think of the IP address as a building's street address and the port number as the apartment number inside.</p>
 </li>
 <li>
-<p>What is a port? (in the context of networking/computers)</p>
+<p>What is port forwarding?
+Port forwarding is a network technique that redirects incoming internet traffic from a router's public IP address and a specific port to a device on a private network, allowing external access to services on that device. It's like creating a specific &quot;door&quot; on your router's firewall to let certain data through to a device like a security camera or a gaming console. This is necessary because your router's security, known as network address translation (NAT), normally blocks unsolicited incoming connections to your private network.</p>
 </li>
 <li>
-<p>What is port forwarding?</p>
+<p>What is localhost? (in the context of networking/computers)
+Localhost is a reserved domain name and IP address that refers to the current computer, allowing you to access services and applications running on it. It is used primarily for testing and development, as it lets you run and test applications locally without needing an internet connection or a public server.</p>
 </li>
 <li>
-<p>What is localhost? (in the context of networking/computers)</p>
+<p>What does this ip address represent 127.0.0.1?
+<code>127.0.0.1</code> is a loopback IP address, commonly called &quot;localhost,&quot; that allows a computer to communicate with itself over a network. This is useful for testing and developing applications locally without needing an external network connection, as all data sent to this address is routed back to the originating computer. It is a standard and reserved address, meaning it is used by every computer with an IPv4 address to refer to the local machine.</p>
 </li>
 <li>
-<p>What does this ip address represent 127.0.0.1?</p>
+<p>What is Git?
+Git is a free and open-source distributed version control system (DVCS) designed to manage and track changes in source code during software development. It enables individuals and teams to collaborate on projects efficiently and effectively.</p>
 </li>
 <li>
-<p>What is Git?</p>
-</li>
-<li>
-<p>What is GitHub?</p>
+<p>What is GitHub?
+GitHub is a cloud-based platform for hosting and collaborating on code using Git, a version control system. It provides a user-friendly web interface for developers to store code in repositories, track changes, manage projects, and work together on software from anywhere.</p>
 </li>
 </ul>
+<h5 id="terms-i-did-not-understand">Terms I did not understand</h5>
+<ul>
+<li>Port forwarding:
+Port forwarding is a <strong>network trick</strong> that tells your router to send incoming internet traffic for a specific &quot;port&quot; (like a digital doorway) to a particular device (like a game console or server) inside your private home network, bypassing the router's default security to allow remote access for things like gaming, security cameras, or hosting servers. It acts like a receptionist directing a specific caller (internet traffic) to the right person (device) in the office (your network) by mapping external requests to internal IP addresses and ports.</li>
+</ul>
+<p>-Bridge Network Adapter:
+A bridged network adapter is a virtual machine (VM) setting that connects the VM directly to the physical network, making it appear as a separate, independent device on the same network as the host computer, getting its own IP address from the router, similar to plugging another physical PC into the network. It uses the host's network adapter but spoofs a unique MAC address, allowing the VM full access to the network and the ability to be seen by other devices, unlike NAT which hides the VM behind the host.</p>
 
-            
-            
-        </body>
-        </html>
+</body>
+</html>
